@@ -1,3 +1,3 @@
 #testing
 print("Hello World!")
-print("bye")
+print("Bye!")
