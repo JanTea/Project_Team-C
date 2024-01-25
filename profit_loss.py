@@ -84,3 +84,20 @@ def fluctuates():
     print (f"[HIGHEST NET PROFIT DEFICIT] DAY: {profit_and_loss[0][0]}, AMOUNT: SGD {abs(profit_and_loss[0][5])}")
     print (f"[2ND HIGHEST NET PROFIT DEFICIT] DAY: {profit_and_loss[1][0]}, AMOUNT: SGD {abs(profit_and_loss[1][5])}")
     print (f"[3RD HIGHEST NET PROFIT DEFICIT] DAY: {profit_and_loss[2][0]}, AMOUNT: SGD {abs(profit_and_loss[2][5])}")
+
+
+# create variable to check if net profit is always increasing, always decreasing, or fluctuates
+increase = False
+decrease = False
+for diff in profit_and_loss:
+    if diff[5] < 0:
+        decrease = True
+    elif diff[5] > 0:
+        increase = True
+
+if(increase and not decrease):
+    increasing()
+elif (decrease and not increase):
+    decreasing()
+else:
+    fluctuates()
