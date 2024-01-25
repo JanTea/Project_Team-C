@@ -67,3 +67,20 @@ def decreasing():
     print (f"[HIGHEST NET PROFIT DEFICIT] DAY: {profit_and_loss[0][0]}, AMOUNT: SGD {abs(profit_and_loss[0][5])}")
 
 
+# If net profit FLUCTUATES
+def fluctuates(): 
+    for x in profit_and_loss:
+        if x[5] < 0:
+            print (f"[NET PROFIT DEFICIT] DAY: {x[0]}, AMOUNT: SGD {abs(x[5])}")
+
+    # create a function that returns the net profit difference only
+    def npd(e):
+        """
+        - This function returns the net profit difference for each day
+        """
+        return e[5]
+    # sort by the 5th index, the net profit difference, for each day
+    profit_and_loss.sort(key=npd)
+    print (f"[HIGHEST NET PROFIT DEFICIT] DAY: {profit_and_loss[0][0]}, AMOUNT: SGD {abs(profit_and_loss[0][5])}")
+    print (f"[2ND HIGHEST NET PROFIT DEFICIT] DAY: {profit_and_loss[1][0]}, AMOUNT: SGD {abs(profit_and_loss[1][5])}")
+    print (f"[3RD HIGHEST NET PROFIT DEFICIT] DAY: {profit_and_loss[2][0]}, AMOUNT: SGD {abs(profit_and_loss[2][5])}")
