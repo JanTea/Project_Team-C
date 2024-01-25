@@ -35,4 +35,35 @@ for i in range(len(profit_and_loss)):
         difference = profit_and_loss[i][4] - profit_and_loss[i - 1][4]
         # append differences across all days to the csv data we already have
         profit_and_loss[i].append(difference)
-# print(profit_and_loss)
+# print(profit_and_loss)        
+
+
+# If net profit ALWAYS INCREASES
+def increasing(): 
+    print("[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN PREVIOUS DAY")
+    # create a function that returns the net profit difference only
+    def npd(e):
+        """
+        - This function returns the net profit difference for each day
+        """
+        return e[5]
+    # sort by the 5th index, the net profit difference, for each day
+    # sort in descending order so that we will start with highest net profit surplus
+    profit_and_loss.sort(reverse = True, key=npd)
+    print (f"[HIGHEST NET PROFIT SURPLUS] DAY: {profit_and_loss[0][0]}, AMOUNT: SGD {profit_and_loss[0][5]}")
+
+
+# If net profit ALWAYS DECREASES
+def decreasing(): 
+    print("[NET PROFIT DEFICIT] NET PROFIT ON EACH DAY IS LOWER THAN PREVIOUS DAY")
+    # create a function that returns the net profit difference only
+    def npd(e):
+        """
+        - This function returns the net profit difference for each day
+        """
+        return e[5]
+    # sort by the 5th index, the net profit difference, for each day
+    profit_and_loss.sort(key=npd)
+    print (f"[HIGHEST NET PROFIT DEFICIT] DAY: {profit_and_loss[0][0]}, AMOUNT: SGD {abs(profit_and_loss[0][5])}")
+
+
