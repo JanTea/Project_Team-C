@@ -35,3 +35,17 @@ for i in range(len(coh)):
         # append differences across all days to the csv data we already have 
         coh[i].append(diff) 
 # print(coh)
+# If Cash on Hand ALWAYS INCREASING 
+def increasing():  
+    print("[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN PREVIOUS DAY") 
+    # create a function that returns the Cash on Hand difference only 
+    def npd(e): 
+        """ 
+        - This function returns the Cash on Hand difference for each day 
+        """ 
+        return e[2] 
+    # sort by the 2nd index, the Cash on Hand difference, for each day 
+    # sort in descending order so that we will start with highest cash surplus 
+    coh.sort(reverse = True, key=npd) 
+    print (f"[HIGHEST CASH SURPLUS] DAY: {coh[0][0]}, AMOUNT: SGD {coh[0][2]}")
+
