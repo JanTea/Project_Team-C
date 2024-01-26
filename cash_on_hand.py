@@ -60,3 +60,19 @@ def decreasing():
     # sort by the 2nd index, the Cash on Hand difference, for each day 
     coh.sort(key=npd) 
     print (f"[HIGHEST CASH DEFICIT] DAY: {coh[0][0]}, AMOUNT: SGD {abs(coh[0][2])}")
+# If Cash on Hand FLUCTUATES 
+def fluctuates():  
+    for x in coh: 
+        if x[2] < 0: 
+            print (f"[CASH DEFICIT] DAY: {x[0]}, AMOUNT: SGD {abs(x[2])}") 
+    # create a function that returns the difference in Cash on Hand only 
+    def npd(e): 
+        """ 
+        - This function returns the net profit difference for each day 
+        """ 
+        return e[2] 
+    # sort by the 5th index, the net profit difference, for each day 
+    coh.sort(key=npd) 
+    print (f"[HIGHEST CASH DEFICIT] DAY: {coh[0][0]}, AMOUNT: SGD {abs(coh[0][2])}") 
+    print (f"[2ND HIGHEST CASH DEFICIT] DAY: {coh[1][0]}, AMOUNT: SGD {abs(coh[1][2])}") 
+    print (f"[3RD HIGHEST CASH DEFICIT] DAY: {coh[2][0]}, AMOUNT: SGD {abs(coh[2][2])}")
