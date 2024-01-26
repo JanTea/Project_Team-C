@@ -48,4 +48,15 @@ def increasing():
     # sort in descending order so that we will start with highest cash surplus 
     coh.sort(reverse = True, key=npd) 
     print (f"[HIGHEST CASH SURPLUS] DAY: {coh[0][0]}, AMOUNT: SGD {coh[0][2]}")
-
+# If Cash on Hand ALWAYS DECREASING 
+def decreasing():  
+    print("[CASH DEFICIT] CASH ON EACH DAY IS LOWER THAN PREVIOUS DAY") 
+    # create a function that returns the Cash on Hand difference only 
+    def npd(e): 
+        """ 
+        - This function returns the Cash on Hand difference for each day 
+        """ 
+        return e[2] 
+    # sort by the 2nd index, the Cash on Hand difference, for each day 
+    coh.sort(key=npd) 
+    print (f"[HIGHEST CASH DEFICIT] DAY: {coh[0][0]}, AMOUNT: SGD {abs(coh[0][2])}")
