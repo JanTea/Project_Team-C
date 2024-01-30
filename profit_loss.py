@@ -98,4 +98,5 @@ def profitloss_function():
         decreasing()
     else:
         fluctuates()
+    # return the results
     return returnlist
