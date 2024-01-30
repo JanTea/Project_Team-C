@@ -31,6 +31,9 @@ def profitloss_function():
             profit_and_loss.append([int(row[0]),int(row[1]),int(row[2]),int(row[3]),int(row[4])]) 
     # print(profit_and_loss)
 
+    # create an empty list to store results
+    returnlist=[]
+
     # calculate difference in net profit column
     # for loop used to compare net profit in the current day with the previous day and repeat for all days
     for i in range(len(profit_and_loss)):
@@ -42,19 +45,19 @@ def profitloss_function():
             # append differences across all days to the profit and loss data
             profit_and_loss[i].append(difference)
     # print(profit_and_loss)
-            
-    # create an empty list to store results
-    returnlist=[]
+
+
+    # create a function that returns the net profit difference ONLY
+    def npd(e):
+        """
+        - This function returns the net profit difference for each day
+        """
+        return e[5]
+
 
     # If net profit ALWAYS INCREASING
     def increasing(): 
         returnlist.append("[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN PREVIOUS DAY")
-        # create a function that returns the net profit difference only
-        def npd(e):
-            """
-            - This function returns the net profit difference for each day
-            """
-            return e[5]
         # sort by the 5th index, the net profit difference, for each day
         # sort in descending order so that we will start with highest net profit surplus
         profit_and_loss.sort(reverse = True, key=npd)
@@ -64,12 +67,6 @@ def profitloss_function():
     # If net profit ALWAYS DECREASING
     def decreasing(): 
         returnlist.append("[NET PROFIT DEFICIT] NET PROFIT ON EACH DAY IS LOWER THAN PREVIOUS DAY")
-        # create a function that returns the net profit difference only
-        def npd(e):
-            """
-            - This function returns the net profit difference for each day
-            """
-            return e[5]
         # sort by the 5th index, the net profit difference, for each day
         profit_and_loss.sort(key=npd)
         returnlist.append(f"[HIGHEST NET PROFIT DEFICIT] DAY: {profit_and_loss[0][0]}, AMOUNT: SGD {abs(profit_and_loss[0][5])}")
@@ -80,13 +77,6 @@ def profitloss_function():
         for x in profit_and_loss:
             if x[5] < 0:
                 returnlist.append(f"[NET PROFIT DEFICIT] DAY: {x[0]}, AMOUNT: SGD {abs(x[5])}")
-
-        # create a function that returns the net profit difference only
-        def npd(e):
-            """
-            - This function returns the net profit difference for each day
-            """
-            return e[5]
         # sort by the 5th index, the net profit difference, for each day
         profit_and_loss.sort(key=npd)
         returnlist.append(f"[HIGHEST NET PROFIT DEFICIT] DAY: {profit_and_loss[0][0]}, AMOUNT: SGD {abs(profit_and_loss[0][5])}")
@@ -108,3 +98,4 @@ def profitloss_function():
         decreasing()
     else:
         fluctuates()
+    return returnlist
