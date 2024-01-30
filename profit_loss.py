@@ -1,9 +1,9 @@
 def profitloss_function():
     """
-    - If net profit is always increasing, this function finds out the day and amount the highest increment occurs
-    - If net profit is always decreasing, this function finds out the day and amount the highest decrement occurs
-    - If net profit fluctuates, this function lists down all the days and amount when deficit occurs
-    and finds out the top 3 highest deficit amount and the days it happened
+    - If net profit is always increasing, identifies day and amount of highest increment
+    - If net profit is always decreasing, identifies day and amount of highest decrement
+    - If net profit fluctuates, lists down all days and amount when deficit occurs
+    and finds out the top 3 highest deficit amounts and the days it occured
     - No parameter is required
     """
     # import a specific function instead of the entire library
@@ -20,10 +20,10 @@ def profitloss_function():
         # skip header
         next(reader)
 
-        # create an empty list for profit and loss
+        # create an empty list for profit and loss data
         profit_and_loss=[] 
 
-        # append profit and loss to the empty list
+        # append profit and loss data to the empty list
         for row in reader:
             # get the Day, Sales, Trading Profit, Operating Expense, Net Profit
             # and append to the profit_and_loss list
@@ -31,21 +31,20 @@ def profitloss_function():
             profit_and_loss.append([int(row[0]),int(row[1]),int(row[2]),int(row[3]),int(row[4])]) 
     # print(profit_and_loss)
 
-    # difference in net profit column
-    # use range() to start calculation from day 2 as there is no day 0 to compare with if we start from day 1
+    # calculate difference in net profit column
     # for loop used to compare net profit in the current day with the previous day and repeat for all days
     for i in range(len(profit_and_loss)):
-        # include a 0 for net profit difference in day 1
+        # include a 0 for net profit difference in day 11
         if i == 0:
             profit_and_loss[i].append(0)
         else:
             difference = profit_and_loss[i][4] - profit_and_loss[i - 1][4]
-            # append differences across all days to the csv data we already have
+            # append differences across all days to the profit and loss data
             profit_and_loss[i].append(difference)
     # print(profit_and_loss)
 
 
-    # If net profit ALWAYS INCREASES
+    # If net profit ALWAYS INCREASING
     def increasing(): 
         print("[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN PREVIOUS DAY")
         # create a function that returns the net profit difference only
@@ -60,7 +59,7 @@ def profitloss_function():
         print (f"[HIGHEST NET PROFIT SURPLUS] DAY: {profit_and_loss[0][0]}, AMOUNT: SGD {profit_and_loss[0][5]}")
 
 
-    # If net profit ALWAYS DECREASES
+    # If net profit ALWAYS DECREASING
     def decreasing(): 
         print("[NET PROFIT DEFICIT] NET PROFIT ON EACH DAY IS LOWER THAN PREVIOUS DAY")
         # create a function that returns the net profit difference only
