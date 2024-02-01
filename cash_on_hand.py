@@ -1,9 +1,9 @@
 def coh_function():
     """
-    - If Cash on Hand is always increasing, this function finds out the day and amount the highest increment occurs
-    - If Cash on Hand is always decreasing, this function finds out the day and amount the highest decrement occurs
-    - If Cash on Hand fluctuates, this function lists down all the days and amount when deficit occurs
-    and finds out the top 3 highest deficit amount and the days it happened
+    - If Cash on Hand is always increasing, identifies day and amount of highest increment
+    - If Cash on Hand is always decreasing, identifies day and amount of highest decrement
+    - If Cash on Hand fluctuates, lists down all days and amount when deficit occurs
+    and finds out the top 3 highest deficit amounts and the days it occured
     - No parameter is required
     """
     # import a specific function instead of the entire library
