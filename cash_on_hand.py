@@ -77,14 +77,14 @@ def coh_function():
         for x in coh:
             if x[2] < 0:
                 returnlist.append(f"[CASH DEFICIT] DAY: {x[0]}, AMOUNT: SGD {abs(x[2])}")
-        # sort by the 5th index, the net profit difference, for each day
+        # sort by the 5th index, the Cash on Hand difference, for each day
         coh.sort(key=cashdiff)
         returnlist.append(f"[HIGHEST CASH DEFICIT] DAY: {coh[0][0]}, AMOUNT: SGD {abs(coh[0][2])}")
         returnlist.append(f"[2ND HIGHEST CASH DEFICIT] DAY: {coh[1][0]}, AMOUNT: SGD {abs(coh[1][2])}")
         returnlist.append(f"[3RD HIGHEST CASH DEFICIT] DAY: {coh[2][0]}, AMOUNT: SGD {abs(coh[2][2])}")
  
  
-    # create variable to check if Cash on Hand is always increasing, always decreasing, or fluctuates
+    # create variable to check if Cash on Hand data is always increasing, always decreasing, or fluctuates
     increase = False
     decrease = False
     for diff in coh:
