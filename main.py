@@ -14,4 +14,14 @@ def main():
     # instantiate file path object to home directory 
     file_path = Path.home()/"Project_Team C"/"summary_report.txt" 
     # create a new file 
-    file_path.touch() 
+    file_path.touch()
+
+    # write calculated values in the txt file 
+    with file_path.open(mode="w", encoding="UTF-8") as file: 
+        # write the results of each function to the file 
+        # write every line of result on a new line 
+        file.write(overhead_result + "\n") 
+        for coh in coh_result: 
+            file.write(coh + "\n") 
+        for profitloss in profitloss_result: 
+            file.write(profitloss + "\n") 
