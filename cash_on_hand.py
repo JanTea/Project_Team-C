@@ -58,31 +58,31 @@ def coh_function():
 
     # If Cash on Hand ALWAYS INCREASING
     def increasing(): 
-        print("[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN PREVIOUS DAY")
+        returnlist.append("[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN PREVIOUS DAY")
         # sort by the 2nd index, the Cash on Hand difference, for each day
         # sort in descending order so that we will start with highest cash surplus
         coh.sort(reverse = True, key=cashdiff)
-        print (f"[HIGHEST CASH SURPLUS] DAY: {coh[0][0]}, AMOUNT: SGD {coh[0][2]}")
+        returnlist.append(f"[HIGHEST CASH SURPLUS] DAY: {coh[0][0]}, AMOUNT: SGD {coh[0][2]}")
 
 
     # If Cash on Hand ALWAYS DECREASING
     def decreasing(): 
-        print("[CASH DEFICIT] CASH ON EACH DAY IS LOWER THAN PREVIOUS DAY")
+        returnlist.append("[CASH DEFICIT] CASH ON EACH DAY IS LOWER THAN PREVIOUS DAY")
         # sort by the 2nd index, the Cash on Hand difference, for each day
         coh.sort(key=cashdiff)
-        print (f"[HIGHEST CASH DEFICIT] DAY: {coh[0][0]}, AMOUNT: SGD {abs(coh[0][2])}")
+        returnlist.append(f"[HIGHEST CASH DEFICIT] DAY: {coh[0][0]}, AMOUNT: SGD {abs(coh[0][2])}")
 
 
     # If Cash on Hand FLUCTUATES
     def fluctuates(): 
         for x in coh:
             if x[2] < 0:
-                print (f"[CASH DEFICIT] DAY: {x[0]}, AMOUNT: SGD {abs(x[2])}")
+                returnlist.append(f"[CASH DEFICIT] DAY: {x[0]}, AMOUNT: SGD {abs(x[2])}")
         # sort by the 5th index, the net profit difference, for each day
         coh.sort(key=cashdiff)
-        print (f"[HIGHEST CASH DEFICIT] DAY: {coh[0][0]}, AMOUNT: SGD {abs(coh[0][2])}")
-        print (f"[2ND HIGHEST CASH DEFICIT] DAY: {coh[1][0]}, AMOUNT: SGD {abs(coh[1][2])}")
-        print (f"[3RD HIGHEST CASH DEFICIT] DAY: {coh[2][0]}, AMOUNT: SGD {abs(coh[2][2])}")
+        returnlist.append(f"[HIGHEST CASH DEFICIT] DAY: {coh[0][0]}, AMOUNT: SGD {abs(coh[0][2])}")
+        returnlist.append(f"[2ND HIGHEST CASH DEFICIT] DAY: {coh[1][0]}, AMOUNT: SGD {abs(coh[1][2])}")
+        returnlist.append(f"[3RD HIGHEST CASH DEFICIT] DAY: {coh[2][0]}, AMOUNT: SGD {abs(coh[2][2])}")
 
     # create variable to check if net profit is always increasing, always decreasing, or fluctuates
     increase = False
