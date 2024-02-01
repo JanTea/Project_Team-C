@@ -11,4 +11,7 @@ def main():
     overhead_result = overheads.overhead_function() 
     coh_result = cash_on_hand.coh_function() 
     profitloss_result = profit_loss.profitloss_function() 
-    
+    # instantiate file path object to home directory 
+    file_path = Path.home()/"Project_Team C"/"summary_report.txt" 
+    # create a new file 
+    file_path.touch() 
