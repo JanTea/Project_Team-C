@@ -24,4 +24,6 @@ def main():
         for coh in coh_result: 
             file.write(coh + "\n") 
         for profitloss in profitloss_result: 
-            file.write(profitloss + "\n") 
+            file.write(profitloss + "\n")
+# call the main function 
+main() 
