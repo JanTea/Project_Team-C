@@ -9,7 +9,7 @@ def overhead_function():
 
     # create a file path to csv file
     # file we want to read and write on
-    fp = Path.home()/"Project_Team C"/"csv_reports"/"overheads.csv"
+    fp = Path.home()/"Project_Team-C"/"csv_reports"/"overheads.csv"
 
     # read the csv file
     with fp.open(mode="r", encoding="UTF-8", newline="") as file:
