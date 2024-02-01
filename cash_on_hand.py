@@ -50,15 +50,15 @@ def coh_function():
     # If Cash on Hand ALWAYS INCREASING
     def increasing(): 
         print("[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN PREVIOUS DAY")
-        # create a function that returns the Cash on Hand difference only
-        def npd(e):
-            """
-            - This function returns the Cash on Hand difference for each day
-            """
-            return e[2]
+    # create a function that returns the Cash on Hand difference only
+    def cashdiff(e):
+        """
+        - This function returns the Cash on Hand difference for each day
+        """
+        return e[2]
         # sort by the 2nd index, the Cash on Hand difference, for each day
         # sort in descending order so that we will start with highest cash surplus
-        coh.sort(reverse = True, key=npd)
+        coh.sort(reverse = True, key=cashdiff)
         print (f"[HIGHEST CASH SURPLUS] DAY: {coh[0][0]}, AMOUNT: SGD {coh[0][2]}")
 
 
@@ -66,13 +66,13 @@ def coh_function():
     def decreasing(): 
         print("[CASH DEFICIT] CASH ON EACH DAY IS LOWER THAN PREVIOUS DAY")
         # create a function that returns the Cash on Hand difference only
-        def npd(e):
+        def cashdiff(e):
             """
             - This function returns the Cash on Hand difference for each day
             """
             return e[2]
         # sort by the 2nd index, the Cash on Hand difference, for each day
-        coh.sort(key=npd)
+        coh.sort(key=cashdiff)
         print (f"[HIGHEST CASH DEFICIT] DAY: {coh[0][0]}, AMOUNT: SGD {abs(coh[0][2])}")
 
 
@@ -82,13 +82,13 @@ def coh_function():
             if x[2] < 0:
                 print (f"[CASH DEFICIT] DAY: {x[0]}, AMOUNT: SGD {abs(x[2])}")
         # create a function that returns the difference in Cash on Hand only
-        def npd(e):
+        def cashdiff(e):
             """
             - This function returns the net profit difference for each day
             """
             return e[2]
         # sort by the 5th index, the net profit difference, for each day
-        coh.sort(key=npd)
+        coh.sort(key=cashdiff)
         print (f"[HIGHEST CASH DEFICIT] DAY: {coh[0][0]}, AMOUNT: SGD {abs(coh[0][2])}")
         print (f"[2ND HIGHEST CASH DEFICIT] DAY: {coh[1][0]}, AMOUNT: SGD {abs(coh[1][2])}")
         print (f"[3RD HIGHEST CASH DEFICIT] DAY: {coh[2][0]}, AMOUNT: SGD {abs(coh[2][2])}")
