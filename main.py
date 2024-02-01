@@ -27,3 +27,4 @@ def main():
             file.write(profitloss + "\n")
 # call the main function 
 main() 
+print("Successfully uploaded into summary report")
