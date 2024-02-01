@@ -99,4 +99,5 @@ def coh_function():
         decreasing()
     else:
         fluctuates()
+    # return the result
     return returnlist
