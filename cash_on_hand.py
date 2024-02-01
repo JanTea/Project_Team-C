@@ -31,7 +31,7 @@ def coh_function():
             # convert Cash on Hand to float data type
             coh.append([int(row[0]),int(row[1])]) 
     # print(coh)
-
+            
 
     # difference in Cash on Hand
     # use range() to start calculation from day 2 as there is no day 0 to compare with if we start from day 1
@@ -45,6 +45,9 @@ def coh_function():
             # append differences across all days to the csv data we already have
             coh[i].append(diff)
     # print(coh)
+            
+    # create an empty list to store results
+    returnlist=[]
             
     # create a function that returns the Cash on Hand difference only
     def cashdiff(e):
